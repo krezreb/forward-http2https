@@ -6,3 +6,5 @@ terraform/backend.configuration
 .terraform/
 terraform.tfstate.d
 .project
+
+build_scripts/build/
