@@ -1,0 +1,8 @@
+tf-local-provisioner/
+.env
+.envrc
+terraform/backend.configuration
+
+.terraform/
+terraform.tfstate.d
+.project
