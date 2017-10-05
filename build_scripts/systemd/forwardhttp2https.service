@@ -4,7 +4,7 @@ After=docker.service
            
 [Service]
 Type=forking
-WorkingDirectory=/usr/local/bin/forward_http2https
+WorkingDirectory=/usr/local/bin/forwardhttp2https
 ExecStart=/usr/local/bin/docker-compose up -d
 ExecStop=/usr/local/bin/docker-compose down
 ;Environment=SSH_AUTH_SOCK=%tdd/keyring/ssh

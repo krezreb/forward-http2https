@@ -5,8 +5,8 @@ PKG=forwardhttp2https
 
 cd $INSTALLDIR
 
-systemctl disable ${PKG}.service
 systemctl stop ${PKG}.service
+systemctl disable ${PKG}.service
 
-unlink /etc/systemd/system/${PKG}.service
+rm -f /etc/systemd/system/${PKG}.service
 rm -rf ${PKG}/*
