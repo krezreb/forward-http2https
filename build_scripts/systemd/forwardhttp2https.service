@@ -3,12 +3,12 @@ Description=Forwards all incoming http connections on port 8086 to https:443
 After=docker.service
            
 [Service]
-Type=forking
+Type=simple
 WorkingDirectory=/usr/local/bin/forwardhttp2https
-ExecStart=/usr/local/bin/docker-compose up -d
+ExecStart=/usr/local/bin/docker-compose up
 ExecStop=/usr/local/bin/docker-compose down
 ;Environment=SSH_AUTH_SOCK=%tdd/keyring/ssh
-Restart=always
+;Restart=always
            
 [Install]
 WantedBy=default.target
