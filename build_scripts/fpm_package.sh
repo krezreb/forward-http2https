@@ -43,29 +43,3 @@ fpm -f -p ${pkg}_${version}.${dist}_${arch}.deb \
  --prefix $install_prefix  \
 $pkg
  
-exit 
-
-################################################
-#
-#		FEDORA
-#
-################################################
-
-dist=fedora
-fpm -f -p ${pkg}_${version}.${dist}_${arch}.rpm \
--n $pkg \
--t rpm \
--v $version \
--a $arch \
--d python-pip \
--d lsof \
--d sysstat \
- --after-install $pkg/systemd/install.sh \
- --pre-uninstall $pkg/systemd/uninstall.sh \
- -s dir \
- --deb-no-default-config-files \
- --prefix $install_prefix \
-$pkg
-
-
-

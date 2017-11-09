@@ -10,3 +10,5 @@ systemctl disable ${PKG}.service
 
 rm -f /etc/systemd/system/${PKG}.service
 rm -rf ${PKG}/*
+
+systemctl daemon-reload

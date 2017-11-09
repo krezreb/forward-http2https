@@ -5,8 +5,8 @@ After=docker.service
 [Service]
 Type=simple
 WorkingDirectory=/usr/local/bin/forwardhttp2https
-ExecStart=/usr/local/bin/docker-compose up
-ExecStop=/usr/local/bin/docker-compose down
+ExecStart=/usr/local/bin/forwardhttp2https/docker-compose up
+ExecStop=/usr/local/bin/forwardhttp2https/docker-compose down
 ;Environment=SSH_AUTH_SOCK=%tdd/keyring/ssh
 ;Restart=always
            

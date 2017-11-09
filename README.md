@@ -16,7 +16,7 @@ NGINX_PORT=8086
 __Make sure that on your target system you have docker (17.06 or newer) and docker-compose (1.16 or newer)__
 
 ``` 
-dpkg -i forwardhttp2https_1.0.ubuntu16.04_noarch.deb
+dpkg -i forwardhttp2https_*.ubuntu16.04_noarch.deb
 ```
 
 
