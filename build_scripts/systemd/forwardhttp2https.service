@@ -8,7 +8,7 @@ WorkingDirectory=/usr/local/bin/forwardhttp2https
 ExecStart=/usr/local/bin/forwardhttp2https/docker-compose up
 ExecStop=/usr/local/bin/forwardhttp2https/docker-compose down
 ;Environment=SSH_AUTH_SOCK=%tdd/keyring/ssh
-;Restart=always
+Restart=always
            
 [Install]
 WantedBy=default.target
