@@ -1,45 +1,28 @@
 # Forward http 2 https
 
-This is a docker compose with a minimal nginx installed that forwards incoming http requests to https
+This is a docker image with a minimal nginx that forwards incoming http requests to https.  Nginx is designed to have minimal memory and CPU footprint and is rate limited to 5 requests per client per second. 
 
-memory footprint : 2mb  =)
-
- vi .env
+# Building
 
 ```
-COMPOSE_PROJECT_NAME=forwardhttp2https
-NGINX_PORT=8086
+cd src
+docker build . -t forwardhttp2https
 ```
 
-# Installing
+Or just use the dockerhub image
 
-__Make sure that on your target system you have docker (17.06 or newer) and docker-compose (1.16 or newer)__
+`docker pull jbeeson/forwardhttp2https`
 
-``` 
-dpkg -i forwardhttp2https_*.ubuntu16.04_noarch.deb
-```
+# Running
 
+Docker compose
 
-# check that it's running
+`docker-compose up`
 
-```
-systemctl status forwardhttp2https.service 
-```
+Docker with local build
 
-```
-● forwardhttp2https.service - Forwards all incoming http connections on port 8086 to https:443
-   Loaded: loaded (/etc/systemd/system/forwardhttp2https.service; enabled; vendor preset: enabled)
-   Active: deactivating (stop)
-  Process: 4053 ExecStart=/usr/local/bin/docker-compose up -d (code=exited, status=0/SUCCESS)
-  Control: 4253 (docker-compose)
-```
+`docker run -p 80:80 -d --restart always  forwardhttp2https`
 
- netstat
+Or, if using dockerhub
 
-
-```
-netstat -ntlp | grep 8086
-tcp6       0      0 :::8086                 :::*                    LISTEN      1715/docker-proxy
-```
-
-visit your server on port 8086 and you'll be 301'd to https
+`docker run -p 80:80 -d --restart always  jbeeson/forwardhttp2https`

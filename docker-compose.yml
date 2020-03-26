@@ -1,0 +1,13 @@
+version : '3.7'
+
+services:
+    nginx:
+        restart: always
+        image: jbeeson/forwardhttp2https
+        ports:
+            - "80:80"
+        deploy:
+            resources:
+                limits:
+                    cpus: '0.50'
+                    memory: 15M
